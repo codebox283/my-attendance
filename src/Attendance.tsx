@@ -9,7 +9,7 @@ interface Student {
 const Attendance: React.FC = () => {
   const [students, setStudents] = useState<Student[]>([]);
   const [attendanceRecords, setAttendanceRecords] = useState<{ date: string; name: string; status: string }[]>([]);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('/students.json');
@@ -25,19 +25,10 @@ const Attendance: React.FC = () => {
     setStudents(newStudents);
 
     const currentDate = new Date().toLocaleDateString();
-    
-    if (status === 'Present') {
-      // Add record if present
-      setAttendanceRecords(prevRecords => [
-        ...prevRecords,
-        { date: currentDate, name: newStudents[index].name, status: status }
-      ]);
-    } else {
-      // Remove record if absent
-      setAttendanceRecords(prevRecords =>
-        prevRecords.filter(record => record.name !== newStudents[index].name)
-      );
-    }
+    setAttendanceRecords(prevRecords => [
+      ...prevRecords,
+      { date: currentDate, name: newStudents[index].name, status: status }
+    ]);
   };
 
   return (

@@ -1,0 +1,6 @@
+[
+    { "name": "John Doe", "status": "Absent" },
+    { "name": "Jane Smith", "status": "Present" },
+    { "name": "Emily Johnson", "status": "Absent" }
+  ]
+  
